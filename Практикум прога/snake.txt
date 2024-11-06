@@ -1,0 +1,149 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+namespace ConsoleApplication3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random r = new Random();
+            DesignScreen();
+            int x = Console.WindowWidth / 2 - 6;
+            int y = Console.WindowHeight / 2;
+            int xd = 1;
+            int yd = 1;
+
+            int xf = r.Next(2, 77), yf = r.Next(2, 21), c = 0;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xf, yf);
+            Console.Write("\u00A7");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            ConsoleKeyInfo cki;
+
+            do
+            {
+                cki = Console.ReadKey();
+
+                Console.SetCursorPosition(x, y);
+                Console.WriteLine(" ");
+
+                switch (cki.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (y > 1)
+                        {
+                            y--;
+                        }
+                        break;
+                    case ConsoleKey.DownArrow: 
+                        if(y < 22)
+                        {
+                        y++; 
+                        }
+                        break;
+                    case ConsoleKey.LeftArrow: 
+                        if (x > 1)
+                        {
+                            x--; 
+                        }
+                        break;
+                    case ConsoleKey.RightArrow: 
+                        if (x < 76)
+                        {
+                            x++;
+                        }
+                        break;
+                }
+
+                if ((x == xf) && (y == yf))
+                {
+                    Console.Beep(497, 100);
+                    c++;
+                    Console.SetCursorPosition(40, 12);
+                    Console.Write(c);
+
+                    xf = r.Next(2, 77);
+                    yf = r.Next(2, 21);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(xf, yf);
+                    Console.Write("\u00A7");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
+                Console.SetCursorPosition(x, y);
+                Console.Write("O");
+                //Thread.Sleep(100);
+                
+            } while (cki.Key != ConsoleKey.Escape);
+            
+        }
+
+        static void DesignScreen()
+        {
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorVisible = false;
+
+            for (int i = 0; i < Console.WindowWidth - 1; i++)
+            {
+                Console.SetCursorPosition(i, 0);
+                Console.WriteLine("\u2550");
+                Console.SetCursorPosition(i, 23);
+                Console.WriteLine("\u2550");
+            }
+
+            for (int i = 0; i < Console.WindowHeight - 2; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.WriteLine("\u2551");
+                Console.SetCursorPosition(78, i);
+                Console.WriteLine("\u2551");
+            }
+
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("\u2554");
+            Console.SetCursorPosition(Console.WindowWidth - 2, 0);
+            Console.WriteLine("\u2557");
+            Console.SetCursorPosition(0, Console.WindowHeight - 2);
+            Console.WriteLine("\u255A");
+            Console.SetCursorPosition(Console.WindowWidth - 2, Console.WindowHeight - 2);
+            Console.WriteLine("\u255D");
+
+            Console.Beep(247, 500);
+            Console.Beep(417, 500);
+            Console.Beep(417, 500);
+            Console.Beep(370, 500);
+            Console.Beep(417, 500);
+            Console.Beep(329, 500);
+            Console.Beep(247, 500);
+            Console.Beep(247, 500);
+            Console.Beep(247, 500);
+            Console.Beep(417, 500);
+            Console.Beep(417, 500);
+            Console.Beep(370, 500);
+            Console.Beep(417, 500);
+            Console.Beep(497, 500);
+            Thread.Sleep(500);
+            Console.Beep(497, 500);
+            Console.Beep(277, 500);
+            Console.Beep(277, 500);
+            Console.Beep(440, 500);
+            Console.Beep(440, 500);
+            Console.Beep(417, 500);
+            Console.Beep(370, 500);
+            Console.Beep(329, 500);
+            Console.Beep(247, 500);
+            Console.Beep(417, 500);
+            Console.Beep(417, 500);
+            Console.Beep(370, 500);
+            Console.Beep(417, 500);
+            Console.Beep(329, 500);
+        }
+    }
+}
