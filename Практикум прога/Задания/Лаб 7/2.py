@@ -1,6 +1,6 @@
 def nok(a, b):
     z = 2
-    while (z <= a) and (z <=3):
+    while (z <= a) and (z <= b):
         if (a % z == 0) and (b % z ==0):
             return z
             break 
