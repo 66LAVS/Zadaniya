@@ -7,7 +7,7 @@ def count_files(directory):
  return count
 
 # Задайте путь к директории
-directory_path = input("/путь/к/директории")
+directory_path = "/workspaces/Zadaniya/Практикум прога/Задания/Лаб 10/Лаб 10"
 
 # Подсчитайте количество файлов
 num_files = count_files(directory_path)
